@@ -7,17 +7,11 @@ import 'package:http/http.dart' as http;
 
 
  Future<List<Platillo>> getPlatillos()async{
-  try {
     return platillos;
-    
-  } catch (e) {
-    print("error obteniendo platillos");
-    return [];
-  }
-}
+   
+ }
 
 Future<Platillo> editarPlatillo(Platillo platillo)async {
- 
     return platillo;
 }
 
@@ -26,4 +20,9 @@ Future<bool> eliminarPlatillo(String id)async {
   platillos.removeWhere((element) => element.id == id);
  
     return true;
+}
+
+Future<Platillo> obtenerPlatilloPorId(String id)async {
+    Platillo platillo = platillos.firstWhere((element) => element.id == id);
+    return platillo;
 }
